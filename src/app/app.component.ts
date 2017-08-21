@@ -7,9 +7,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   userName = '';
-  
+  allowUserRemoval = true;
+
   onTypeInInput(event: any){
-    console.log(event);
     this.userName = (<HTMLInputElement>event.target).value;
+    (this.userName.length > 0) ? this.allowUserRemoval = false : this.allowUserRemoval = true;
+  }
+
+  emptyUser(){
+    this.userName = '';
   }
 }
